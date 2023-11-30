@@ -132,13 +132,18 @@ form .signup-link a:hover{
         login
     </div>
 
-  <form action="login-admin" method="POST">
+  <form action="daftar-admin" method="POST">
 @method("POST")
 @csrf
 
   @if(session("error"))
       <div class="alert alert-danger">username atau password salah</div>
     @endif
+
+    <div class="field">
+              <label for="nama_admin"></label>
+               <input type="text"  class="zocial-dribbble" placeholder="Enter your nama" name="nama_admin">
+            </div>
 
         <div class="field">
             <label for="username"></label>
@@ -150,11 +155,15 @@ form .signup-link a:hover{
             <input type="password" class="zocial-dribbble" placeholder="Enter your password" name="password">
         </div>
 
+        <div class="field">
+              <label for="telp"></label>
+               <input type="tel"  class="zocial-dribbble" placeholder="Enter your telp" name="telp">
+            </div>
+
       <div class="field">
           <button style="margin-left:35%;" type="submit" class="btn btn-outline-success">login</button>
       </div>
 
-      <p><a href="{{'daftar-admin'}}" style="margin-left:50px;">belum punya akun? daftar</a></p>
 </form>
 
 

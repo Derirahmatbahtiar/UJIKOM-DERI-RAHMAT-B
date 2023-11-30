@@ -21,6 +21,27 @@ class admincontroller extends Controller
            }
     }
 
+
+
+    function regist(){
+        return view('daftar-admin');
+    }
+
+    function regist_admin(request $request){
+        $nama = $request-> nama;
+        $username = $request-> username;
+        $password = $request-> password;
+        $telp = $request-> telp;
+
+        DB::table('admin')->insert([
+            'nama_admin' => $nama,
+            'username' => $username,
+            'password' => hash::make($password),
+            'telp' => $telp
+        ]);
+        return redirect('/login-admin');
+    }
+
 }
 
 

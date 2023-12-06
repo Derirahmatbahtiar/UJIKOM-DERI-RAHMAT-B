@@ -38,7 +38,7 @@
         </li>
 
         <li>
-            <a href="#" class="nav-link link-dark">
+            <a href="penjualan" class="nav-link link-dark">
             <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use>
             <path d="M5.071 1.243a.5.5 0 0 1 .858.514L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 6h1.717L5.07 1.243zM3.5 10.5a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0z"/>
                 </svg>
@@ -57,7 +57,7 @@
         </li>
 
         <li>
-            <a href="#" class="nav-link link-dark">
+            <a href="penjualan" class="nav-link link-dark">
             <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use>
             <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
             </svg>
@@ -81,27 +81,33 @@
 
 
 <div class="container">
-    <form action="nambah-barang" method="POST" enctype="multipart/form-data">
+    <form action="tampil-produk" method="POST" enctype="multipart/form-data">
     @method("POST")
     @csrf
+
+    <div>
+        <h1>tambahkan barang</h1>
+    </div>
+    <br>
+
     <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label" >buat laporan</label>
+        <label for="exampleFormControlTextarea1" class="form-label" >nama produk</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="nama_produk"></textarea>
     </div>
 
     <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label" >buat laporan</label>
+        <label for="exampleFormControlTextarea1" class="form-label" >harga</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="harga"></textarea>
     </div>
 
     <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label" >buat laporan</label>
+        <label for="exampleFormControlTextarea1" class="form-label" >stok</label>
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="stok"></textarea>
     </div>
 
         
 
-        <button class="btn btn-outline-success"type="submit">kirim</button>
+        <button class="btn btn-outline-success" type="submit">kirim</button>
 
         </form>
     </div>

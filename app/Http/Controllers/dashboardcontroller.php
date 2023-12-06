@@ -8,47 +8,78 @@ use App\Models\produk;
 
 class dashboardcontroller extends Controller
 {
-   function dashboard(){
-    return view('/dashboard');
-   }
-
-
-function data_barang(){
-   return view('/data-barang');
+//tampilan
+  function tampilan(){
+    return view('dashboard');
   }
 
 
-  function detail_barang(){
-   return view('/detail-barang');
+//produk  
+    function tampil_produk(){
+      $tambahkan = DB::table ('produk')->get();
+        return view('data-barang', [ 'tambahkan' => $tambahkan]);
+    }
+
+    function proses_produk(request $request){
+      $nama_produk = $request-> nama_produk;
+      $harga = $request-> harga;
+      $stok = $request-> stok;
+
+      DB::table('produk')->insert([
+          'nama_produk' => $nama_produk,
+          'harga' => $harga,
+          'stok' => $stok
+      ]);
+      return redirect('/data-barang');
   }
 
-function hapus($id){
-   DB::table('pengaduan')->where('id_pengaduan', '=' , $id)->delete();
-   return  redirect('/home-pengaduan');
-   }
 
- function index(){
-      $produk = produk::all();
-      return view('data-barang', [ 'tambah' => $tambah]);
- 
-  }
-   
-   function tampil_barang(){
-     
-      return view('data-barang');
+//tambah produk  
+  function tambah_barang(){
+    return view('tambah-produk');
   }
 
-function proses_tambah(request $request){
-    $nama_produk = $request-> nama;
-    $harga = $request-> harga;
-    $stok = $request-> stok;
 
-    DB::table('produk')->insert([
-        'nama_produk' => $nama,
+//hapus produk  
+  function hapus($id){
+    DB::table('produk')->where('produk_id', '=' , $id)->delete();
+    return  redirect('/data-barang');
+    }
+
+//detail produk
+    function detail($id){
+      $produk = DB::table('produk')->where('produk_id', '=', $id)->get();
+      return view('detail-barang', ['produk' => $produk]);
+  }
+
+
+//update produk  
+  function update($id){
+    $produk = DB::table('produk')->where('produk_id', '=', $id)->first();
+    return view('/update-produk', ['produk' => $produk]);
+}
+
+function proses_update(request $request, $id){
+    $nama_produk = $request->nama_produk;
+    $harga = $request->harga;
+    $stok = $request->stok;
+
+    DB::table('produk')->where('produk_id', '=', $id)->update([
+        'nama_produk' => $nama_produk,
         'harga' => $harga,
         'stok' => $stok,
-    ]);
+    ]); 
     return redirect('/data-barang');
 }
+
+
+//logout
+function proses_logout(){
+  Auth::guard('admin')->logout();
+  return redirect("/login-admin");
+}
+
+
+
 
 }

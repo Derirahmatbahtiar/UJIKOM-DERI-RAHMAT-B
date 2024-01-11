@@ -28,7 +28,7 @@
 
 <div style="display:flex;">
     <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px; height:90vh">
-        <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"> 
+        <a  href="tampilan" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"> 
           <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use>
           </svg>
           <span class="fs-4">SYUKUR</span>
@@ -83,9 +83,14 @@
             logout
           </a>
     </div>
-    
+
+    <div class="container">
+    <h2>Dashboard</h2>
 
 
+
+
+    </div>
     </div>
 </body>
 </html>

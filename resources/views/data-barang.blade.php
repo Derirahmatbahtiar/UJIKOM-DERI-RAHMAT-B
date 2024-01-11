@@ -20,7 +20,7 @@
     <div style="display:flex;">
         <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px; height:90vh;">
 
-        <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"> 
+        <a href="tampilan"  class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"> 
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
         <span class="fs-4">SYUKUR</span>
 
@@ -88,11 +88,11 @@
      <table  class="table table-bordered table-dark table table-bordered border-primary">
   <thead>
     <tr>
-      <th scope="col">produk id</th>
-      <th scope="col">tgl jual</th>
-      <th scope="col">total harga</th>
-      <th scope="col">pelanggan id</th>
-      <th scope="col">opsi</th>
+      <th scope="col">Produk id</th>
+      <th scope="col">Tgl jual</th>
+      <th scope="col">Total harga</th>
+      <th scope="col">Pelanggan id</th>
+      <th scope="col">Opsi</th>
     </tr>
   </thead>
 
@@ -112,7 +112,7 @@
             </svg>
         </a>
 
-        <a href="detail/{{$tambahkan->produk_id}}"  class="btn btn-outline-warning">
+        <a href="detail/{{$tambahkan->produk_id}}"  class="btn btn-outline-primary">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
             <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
             <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>

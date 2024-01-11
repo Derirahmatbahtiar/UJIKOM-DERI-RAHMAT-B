@@ -82,17 +82,17 @@
 
 <div class="container">
     <br>
-    <h3>BELOM ADA REFERENSI...</h3>
+    <h3>ANDA BISA MEMBELI BARANG</h3>
     <br>
 
      <table  class="table table-bordered table-dark table table-bordered border-primary">
   <thead>
     <tr>
-      <th scope="col">produk id</th>
-      <th scope="col">tgl jual</th>
-      <th scope="col">total harga</th>
-      <th scope="col">pelanggan id</th>
-      <!-- <th scope="col">opsi</th> -->
+      <th scope="col">Id</th>
+      <th scope="col">Tanggal jual</th>
+      <th scope="col">Total harga</th>
+      <th scope="col">Pelanggan id</th>
+      <th scope="col">Qty</th>
     </tr>
   </thead>
 
@@ -104,11 +104,21 @@
         <td>{{$jual -> tgl_penjualan}}</td>
         <td>Rp {{$jual ->total_harga}} </td>
         <td>{{$jual -> pelanggan_id}}</td>
+        <td>
+            <div style="width:30%;">
+            <input type="number" class="form-control" name="Qty" placeholder="Qty"></div>
+        </td>
      
 @endforeach
    </tr>
 </table>
 
+        <a href="" type="submit" class="btn btn-outline-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+        </svg>
+                Beli barang disini
+        </a>
 
 
 

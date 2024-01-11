@@ -102,7 +102,7 @@
     <tr>
         <td>{{$produk -> produk_id}}</td>
         <td>{{$produk -> nama_produk}}</td>
-        <td>{{$produk -> harga}} </td>
+        <td>Rp {{$produk -> harga}} </td>
         <td>{{$produk -> stok}}</td>
         <td>
         <a href="/update/{{$produk->produk_id}}" class="btn btn-outline-success">

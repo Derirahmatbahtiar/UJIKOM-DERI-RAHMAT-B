@@ -7,10 +7,6 @@ use Illuminate\Http\Request;
 
 class penjualancontroller extends Controller
 {
-    // function penjualan(){
-    //     return view('penjualan');
-    // }
-
     function tampil_penjualan(){
         $jual = DB::table ('penjualan')->get();
           return view('penjualan', [ 'jual' => $jual]);

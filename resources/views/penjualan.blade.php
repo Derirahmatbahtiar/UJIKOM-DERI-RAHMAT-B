@@ -102,16 +102,40 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             
         </div>
-        <div>
-
-
         
-        </div>
+
+        <table  class="table table-bordered table-dark table table-bordered border-primary">
+  <thead>
+    <tr>
+      <th scope="col">Produk id</th>
+      <th scope="col">Tgl jual</th>
+      <th scope="col">Total harga</th>
+      <th scope="col">Pelanggan id</th>
+    </tr>
+  </thead>
+
+@foreach($produk as $tambahkan)
+
+
+    <tr>
+        <td>{{$tambahkan -> produk_id}}</td>
+        <td>{{$tambahkan -> nama_produk}}</td>
+        <td>{{$tambahkan -> harga}} </td>
+        <td>{{$tambahkan -> stok}}</td>
+        <td>
+            <div style="width:30%;">
+            <input type="number" class="form-control" name="Qty" placeholder="Qty"></div>
+        </td>
+     
+@endforeach
+   </tr>
+</table>
+
 
      
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-        <button type="button" class="btn btn-primary">Kirim</button>
+        <button type="button" class="btn btn-primary">Masukkan ke keranjang</button>
       </div>
     </div>
   </div>
@@ -140,10 +164,7 @@
         <td>{{$jual -> tgl_penjualan}}</td>
         <td>Rp {{$jual ->total_harga}} </td>
         <td>{{$jual -> pelanggan_id}}</td>
-        <td>
-            <div style="width:30%;">
-            <input type="number" class="form-control" name="Qty" placeholder="Qty"></div>
-        </td>
+        
      
 @endforeach
    </tr>

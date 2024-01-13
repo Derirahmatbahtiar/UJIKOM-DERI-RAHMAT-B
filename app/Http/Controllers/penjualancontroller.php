@@ -24,5 +24,14 @@ class penjualancontroller extends Controller
         ]);
         return redirect('/jualan');
     }
+
+    function order(request $request){
+        $produk = DB::table('produk')->get();
+        return view('penjualan', ['produk' => $produk]);
+    }
     
+
+
+    
+
 }

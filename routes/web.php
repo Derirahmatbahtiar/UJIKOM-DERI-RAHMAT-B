@@ -43,3 +43,5 @@ Route::get('/logout/admin',[admincontroller::class, 'proses_logout']);
 
 Route::get('/daftar-admin',[admincontroller::class, 'regist']);
 Route::post('/daftar-admin',[admincontroller::class, 'admin_admin']);
+
+Route::get('/order',[penjualancontroller::class, 'order']);

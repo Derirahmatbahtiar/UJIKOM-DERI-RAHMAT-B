@@ -44,5 +44,24 @@ class customerscontroller extends Controller
     }
 
 
+//update pelanggan    
+    function update($id){
+      $produk = DB::table('pelanggan')->where('pelanggan_id', '=', $id)->first();
+      return view('/update-pelanggan', ['pelanggan' => $pelanggan]);
+  }
+  
+  function proses_update(request $request, $id){
+      $nama_pelanggan = $request->nama_pelanggan;
+      $alamat = $request->alamat;
+      $no_telp = $request->no_telp;
+  
+      DB::table('produk')->where('produk_id', '=', $id)->update([
+          'nama_pelanggan' => $nama_pelanggan,
+          'alamat' => $alamat,
+          'no_telp' => $no_telp,
+      ]); 
+      return redirect('/data-barang');
+  }
+
 
 }

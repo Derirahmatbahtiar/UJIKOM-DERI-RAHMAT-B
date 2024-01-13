@@ -24,4 +24,5 @@ class penjualancontroller extends Controller
         ]);
         return redirect('/jualan');
     }
+    
 }

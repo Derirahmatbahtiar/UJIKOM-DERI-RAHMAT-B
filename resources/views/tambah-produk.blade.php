@@ -86,7 +86,7 @@
     @csrf
 
     <div>
-        <h1>tambahkan barang</h1>
+        <h1>Tambahkan barang</h1>
     </div>
     <br>
 

@@ -94,6 +94,8 @@
         Tambahkan barang 
     </button>
 
+
+<!-- modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -103,14 +105,16 @@
             
         </div>
         
-
-        <table  class="table table-bordered table-dark table table-bordered border-primary">
+<div class="container">
+    <table class="table">
   <thead>
     <tr>
       <th scope="col">Produk id</th>
-      <th scope="col">Tgl jual</th>
-      <th scope="col">Total harga</th>
-      <th scope="col">Pelanggan id</th>
+      <th scope="col">Nama produk</th>
+      <th scope="col">Harga</th>
+      <th scope="col">Stok</th>
+      <th scope="col">Qty</th>
+      <th scope="col">Tambah</th>
     </tr>
   </thead>
 
@@ -123,16 +127,23 @@
         <td>{{$tambahkan -> harga}} </td>
         <td>{{$tambahkan -> stok}}</td>
         <td>
-            <div style="width:30%;">
-            <input type="number" class="form-control" name="Qty" placeholder="Qty"></div>
+            <div style="width:40%;">
+            <input type="number" min="1" class="form-control" name="Qty" placeholder="Qty" required></div>
+        </td>
+
+        <td>
+        <button type="button" class="btn btn-outline-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+          </svg>
+        </button>
         </td>
      
 @endforeach
    </tr>
 </table>
+</div>
 
-
-     
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
         <button type="button" class="btn btn-primary">Masukkan ke keranjang</button>
@@ -145,37 +156,38 @@
 <br>
 
 
-<table  class="table table-bordered table-dark table table-bordered border-primary">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Tanggal jual</th>
-      <th scope="col">Total harga</th>
-      <th scope="col">Pelanggan id</th>
-      <th scope="col">Qty</th>
-    </tr>
-  </thead>
+      <!-- tabel   -->
+      <table  class="table table-bordered table-dark table table-bordered border-primary">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Tanggal jual</th>
+            <th scope="col">Total harga</th>
+         
+            <th scope="col">Qty</th>
+          </tr>
+        </thead>
 
-@foreach($jual as $jual)
+      @foreach($jual as $jual)
 
 
-    <tr>
-        <td>{{$jual -> penjualan_id}}</td>
-        <td>{{$jual -> tgl_penjualan}}</td>
-        <td>Rp {{$jual ->total_harga}} </td>
-        <td>{{$jual -> pelanggan_id}}</td>
-        
-     
-@endforeach
-   </tr>
-</table>
+          <tr>
+              <td>{{$jual -> penjualan_id}}</td>
+              <td>{{$jual -> tgl_penjualan}}</td>
+              <td>Rp {{$jual ->total_harga}} </td>
+           
+              
+          
+      @endforeach
+        </tr>
+      </table>
 
-        <a href="" type="submit" class="btn btn-outline-primary">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card-2-front-fill" viewBox="0 0 16 16">
-            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2.5 1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm0 3a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z"/>
-            </svg>
-            Beli barang disini
-        </a>
+              <a href="" type="submit" class="btn btn-outline-primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card-2-front-fill" viewBox="0 0 16 16">
+                  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2.5 1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm0 3a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z"/>
+                  </svg>
+                  Beli barang disini
+              </a>
 
 
 

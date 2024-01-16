@@ -9,7 +9,8 @@ class penjualancontroller extends Controller
 {
     function tampil_penjualan(){
         $jual = DB::table ('penjualan')->get();
-          return view('penjualan', [ 'jual' => $jual]);
+        $produk = DB::table ('produk')->get();
+          return view('penjualan', [ 'jual' => $jual, 'produk' => $produk]);
       }
   
       function proses_jual(request $request){
@@ -25,10 +26,7 @@ class penjualancontroller extends Controller
         return redirect('/jualan');
     }
 
-    function order(request $request){
-        $produk = DB::table('produk')->get();
-        return view('penjualan', ['produk' => $produk]);
-    }
+ 
     
 
 

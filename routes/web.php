@@ -35,6 +35,7 @@ Route::POST('/pelanggan',[customerscontroller::class, 'proses_pelanggan']);
 
 Route::get('/penjualan',[penjualancontroller::class, 'tampil_penjualan']);
 Route::POST('/proses_jual',[penjualancontroller::class, 'proses_jual']);
+Route::POST('/keranjang/{id}',[penjualancontroller::class, 'keranjang']);
 
 
 Route::get('/login-admin',[admincontroller::class, 'admin']);

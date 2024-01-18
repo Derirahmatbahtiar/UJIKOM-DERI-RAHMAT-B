@@ -121,33 +121,38 @@
 @foreach($produk as $tambahkan)
 
 
+  <form action="/keranjang/{{$tambahkan->produk_id}}" method="post">
+  @method('post')
+  @csrf
     <tr>
-        <td>{{$tambahkan -> produk_id}}</td>
+        <td>
+            <input type="hidden" value="{{$tambahkan -> produk_id}}">
+            {{$tambahkan -> produk_id}}</td>
         <td>{{$tambahkan -> nama_produk}}</td>
         <td>{{$tambahkan -> harga}} </td>
         <td>{{$tambahkan -> stok}}</td>
         <td>
             <div style="width:40%;">
-            <input type="number" min="1" class="form-control" name="Qty" placeholder="Qty" required></div>
+            <input type="number" min="1" class="form-control" name="qty" placeholder="Qty" required></div>
         </td>
 
         <td>
-        <button type="button" class="btn btn-outline-primary">
+        <button type="submit" class="btn btn-outline-primary">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
           <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
           </svg>
-        </button>
+</button>
         </td>
-     
+        </form>
 @endforeach
    </tr>
 </table>
 </div>
 
-      <div class="modal-footer">
+      <!-- <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
         <button type="button" class="btn btn-primary">Masukkan ke keranjang</button>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
@@ -161,6 +166,7 @@
         <thead>
           <tr>
             <th scope="col">Id</th>
+            <th scope="col">Nama produk</th>
             <th scope="col">Tanggal jual</th>
             <th scope="col">Total harga</th>
          
@@ -173,6 +179,7 @@
 
           <tr>
               <td>{{$jual -> penjualan_id}}</td>
+              <td>{{$jual -> nama_produk}}</td>
               <td>{{$jual -> tgl_penjualan}}</td>
               <td>Rp {{$jual ->total_harga}} </td>
            

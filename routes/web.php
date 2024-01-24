@@ -8,9 +8,10 @@ use App\Http\Controllers\penjualancontroller;
 use App\Models\produk;
 use App\Models\pelanggan;
 
-
+// Route::middleware(['auth'])->group(function(){
 Route::get('/tampilan',[dashboardcontroller::class, 'tampilan']);
 
+Route::get('/tampil-dp',[dashboardcontroller::class, 'tampil_dp']);
 Route::get('/index',[dashboardcontroller::class, 'index']);
 Route::get('/data-barang',[dashboardcontroller::class, 'tampil_produk']);
 Route::post('/tampil-produk',[dashboardcontroller::class, 'proses_produk']);
@@ -33,15 +34,18 @@ Route::get('/detail_pelanggan/{id}',[customerscontroller::class, 'detail_pelangg
 Route::get('/pelanggan',[customerscontroller::class, 'tampil_pelanggan']);
 Route::POST('/pelanggan',[customerscontroller::class, 'proses_pelanggan']);
 
+Route::get('/hapus-s',[penjualancontroller::class, 'hapus_s']);
 Route::get('/penjualan',[penjualancontroller::class, 'tampil_penjualan']);
 Route::POST('/proses_jual',[penjualancontroller::class, 'proses_jual']);
 Route::POST('/keranjang/{id}',[penjualancontroller::class, 'keranjang']);
 
-
-Route::get('/login-admin',[admincontroller::class, 'admin']);
-Route::post('/login-admin',[admincontroller::class, 'proses_admin']);
 Route::get('/logout/admin',[admincontroller::class, 'proses_logout']);
 
+// });
+Route::get('/login-admin',[admincontroller::class, 'admin']);
+Route::post('/login-admin',[admincontroller::class, 'proses_admin']);
+
+
 Route::get('/daftar-admin',[admincontroller::class, 'regist']);
-Route::post('/daftar-admin',[admincontroller::class, 'admin_admin']);
+Route::post('/daftar-admin',[admincontroller::class, 'regist_admin']);
 

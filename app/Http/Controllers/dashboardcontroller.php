@@ -80,6 +80,11 @@ function proses_logout(){
 }
 
 
+//detail penjualan
+function tampil_dp(){
+  return view('/detail-penjualan');
+}
+
 
 
 }

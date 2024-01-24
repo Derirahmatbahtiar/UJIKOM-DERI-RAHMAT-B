@@ -141,21 +141,37 @@
         <td>{{$tambahkan -> stok}}</td>
         <td>
             <div style="width:40%;">
-            <input type="number" min="1" class="form-control" name="qty" placeholder="Qty" required></div>
+            <input type="number" min="1" class="form-control" name="qty" placeholder="Qty" ></div>
         </td>
 
         <td>
-        <button type="submit" class="btn btn-outline-success">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
-          </svg>
-</button>
+      
         </td>
-        </form>
+        
 @endforeach
    </tr>
 </table>
 </div>
+
+        <div>
+        <button style="margin-left:90%;" type="submit" class="btn btn-outline-success">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                  </svg>
+              </button>
+        </div>
+        <br>
+    
+</form>
+      <div>
+      <select name="pelanggan" class="form-select form-select-sm" aria-label="Small select example">
+        <option selected>Nama pelanggan</option>
+        @foreach ($pelanggan as $pelanggan )
+        <option value="{{$pelanggan->pelanggan_id}}">{{$pelanggan->nama_pelanggan}}</option>
+        @endforeach
+      </select>
+      </div>
+
 
       <div class="modal-footer">
         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Tutup</button>

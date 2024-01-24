@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 class penjualancontroller extends Controller
 {
     function tampil_penjualan(){
+        $pelanggan = DB::table('pelanggan')->get();
         $jual = DB::table ('sementara')->get();
         $produk = DB::table ('produk')->get();
 
@@ -20,7 +21,7 @@ class penjualancontroller extends Controller
             $harga = DB::table('sementara')->get('total');
             $total_harga = collect($harga)->sum('total');
 
-          return view('penjualan', [ 'jual' => $jual, 'produk' => $produk , 'sementara'=> $sementara]);
+          return view('penjualan', [ 'jual' => $jual, 'produk' => $produk , 'sementara'=> $sementara, 'pelanggan' => $pelanggan]);
       }
   
       function proses_jual(request $request, $id){
@@ -67,6 +68,7 @@ class penjualancontroller extends Controller
         return  redirect('/penjualan');
         }
     
+
 
 
     

@@ -153,24 +153,27 @@
 </table>
 </div>
 
-        <div>
-        <button style="margin-left:90%;" type="submit" class="btn btn-outline-success">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-                  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
-                  </svg>
-              </button>
-        </div>
-        <br>
-    
-</form>
-      <div>
-      <select name="pelanggan" class="form-select form-select-sm" aria-label="Small select example">
+<br>
+
+      <div class="container">
+      <select style="width:50%; margin-left:50%;" name="pelanggan" class="form-select form-select-sm" aria-label="Small select example">
         <option selected>Nama pelanggan</option>
         @foreach ($pelanggan as $pelanggan )
         <option value="{{$pelanggan->pelanggan_id}}">{{$pelanggan->nama_pelanggan}}</option>
         @endforeach
       </select>
       </div>
+      <br>
+
+      <div>
+        <button style="margin-left:90%;" type="submit" class="btn btn-outline-success">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                  </svg>
+              </button>
+        </div>
+    </form>
+      <br>
 
 
       <div class="modal-footer">
@@ -234,7 +237,7 @@
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card-2-front-fill" viewBox="0 0 16 16">
                   <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2.5 1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm0 3a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z"/>
                   </svg>
-                  Beli barang disini
+                  Checkout
               </a>
 
 

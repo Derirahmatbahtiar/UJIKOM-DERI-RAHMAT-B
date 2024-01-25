@@ -47,15 +47,15 @@ class penjualancontroller extends Controller
         $qty = $request -> qty;
         $total = $request -> total_harga;
 
-        $produk = DB::table('produk')->where('produk_id', $produk_id)->first();
+        $produk = DB::table('produk')->where('produk_id', $request->produk_id)->first();
 
         DB::table('sementara')->insert([
             'produk_id' => $produk_id,
             // 'nama_produk' => $produk->nama_produk,
             // 'harga' => $produk->harga,
             'tanggal_jual' => $tanggal_jual,
-            'qty' => $qty,
-            'total' => $qty * $produk->harga
+            'qty' => 1,
+            'total' =>1 * $produk->harga
             
             
         ]);
@@ -63,10 +63,10 @@ class penjualancontroller extends Controller
     }
 
  
-    function hapus_s($id){
-        DB::table('sementara')->where('produk_id', '=' , $id)->delete();
-        return  redirect('/penjualan');
-        }
+    // function hapus_s($id){
+    //     DB::table('sementara')->where('produk_id', '=' , $id)->delete();
+    //     return  redirect('/penjualan');
+    //     }
     
 
 

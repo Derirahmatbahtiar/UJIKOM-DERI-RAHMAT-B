@@ -5,6 +5,8 @@ use App\Http\Controllers\admincontroller;
 use App\Http\Controllers\customerscontroller;
 use App\Http\Controllers\dashboardcontroller;
 use App\Http\Controllers\penjualancontroller;
+use App\Http\Controllers\penjualan2controller;
+
 use App\Models\produk;
 use App\Models\pelanggan;
 
@@ -48,4 +50,10 @@ Route::post('/login-admin',[admincontroller::class, 'proses_admin']);
 
 Route::get('/daftar-admin',[admincontroller::class, 'regist']);
 Route::post('/daftar-admin',[admincontroller::class, 'regist_admin']);
+
+// Route::get('/penjualan2',[penjualan2controller::class, 'penjualan2']);
+
+Route::get('/tambah-penjualan',[Penjualan2Controller::class,'penjualan2']);
+Route::post('/tambah-penjualan',[Penjualan2Controller::class,'tambah']);
+Route::get('/data-penjualan',[Penjualan2Controller::class,'data_penjualan']);
 

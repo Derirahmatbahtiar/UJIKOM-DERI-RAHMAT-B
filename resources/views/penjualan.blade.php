@@ -192,7 +192,7 @@
         <thead>
           <tr>
             <th scope="col">Id</th>
-            <!-- <th scope="col">Nama produk</th> -->
+            <th scope="col">Nama produk</th>
             <!-- <th scope="col">Harga</th> -->
             <th scope="col">Tanggal jual</th>
             <th scope="col">Harga satuan</th>
@@ -206,9 +206,10 @@
 
           <tr>  
               <td value="{{$jual -> produk_id}}">{{$jual -> produk_id}}</td>
-            
-              <td>{{$jual -> tanggal_jual}}</td>
-              <td>Rp {{$jual ->total}} </td>
+              <td value="{{$jual->nama_produk}}">{{$jual->nama_produk}}</td>
+
+              <td>{{$jual ->tanggal_jual}}</td>
+              <td>Rp {{$jual->total}} </td>
               <td>{{$jual ->qty}}</td>
               <td>
               <!-- <a href="hapus-s/{{$jual->produk_id}}" class="btn btn-outline-danger">
@@ -221,7 +222,9 @@
            
               
           
+  
       @endforeach
+
         </tr>
       </table>
 

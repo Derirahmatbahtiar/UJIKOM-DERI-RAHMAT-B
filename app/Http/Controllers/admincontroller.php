@@ -16,7 +16,7 @@ class admincontroller extends Controller
 
         function proses_admin(request $request){
             $data = $request->only("username", "password");
-            if(Auth::guard("admin")->attempt($data)){
+            if(Auth::attempt($data)){
                 return redirect('tampilan');
            }else{
                 return redirect('login-admin')->with("error", "username atau password salah");
@@ -43,6 +43,8 @@ class admincontroller extends Controller
         ]);
         return redirect('/login-admin');
     }
+
+
 
 }
 

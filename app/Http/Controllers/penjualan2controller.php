@@ -15,62 +15,89 @@ class Penjualan2Controller extends Controller
 
         $penjualan = DB::table('penjualan')->latest()->first();
 
-        $penjualan_id = "";
+        $id_jual = "";
 
         if(!$penjualan){
-            $penjualan_id = '1';
+            $id_jual = '1';
         }else{
 
-            // if($penjualan->status == "selesai"){
-            //     $penjualan_id = $penjualan->Penjualan_id+ 1;
-            // }else{
-            //     $penjualan_id = $penjualan->Penjualan_id;
-            // }
+            if($penjualan->status == "selesai"){
+                $id_jual = $penjualan->penjualan_id + 1;
+            }else{
+                $id_jual = $penjualan->penjualan_id;
+            }
         }
 
-        $detail_penjualan = DB::table('produk')->where("penjualan_id", $penjualan_id)
+        $detail_penjualan = DB::table('produk')->where("penjualan_id", $id_jual)
         ->join("detail_penjualan","produk.produk_id","=",'detail_penjualan.produk_id')
         ->get();
 
 
-        return view ('/penjualan2',['produk'=>$produk,'pelanggan'=>$pelanggan ,'penjualan_id' => $penjualan_id, 'detail_penjualan' => $detail_penjualan]);
+        return view ('/penjualan2',['produk'=>$produk,'pelanggan'=>$pelanggan ,'penjualan_id' => $id_jual, 'detail_penjualan' => $detail_penjualan]);
     }
 
     function tambah(Request $request ){
         $produk = DB::table('produk')->where('produk_id', $request->produk)->first();
 
-        // return $produk;
+        // return $produk;     
 
         $data_Penjualan = DB::table('penjualan')->where('penjualan_id', $request->penjualan_id)->first();
         if(!$data_Penjualan){
             $penjualan = DB::table('penjualan')->insert([
                 'penjualan_id' => $request->penjualan_id,
-             
                 'tgl_Penjualan'=> date("Y-m-d"),
                 'total_harga' => 0,
                 'pelanggan_id' => $request->pelanggan,
-                // 'status'=>"pending"
+                'status'=>'proses'
             ]);
+  
         }
        
 
-        $detail= DB::table('detail_penjualan')->insert([
+        $detail = DB::table('detail_penjualan')->insert([
             'penjualan_id' => $request->penjualan_id,
-            'produk_id' => $request->produk_,
-            'Jumlah_Produk'=> $request->qty,
-            'SubTotal'=> $request->qty * $produk->harga,
+            'produk_id' => $request->produk,
+            'jumlah_produk'=> $request->qty,
+            'SubTotal'=> $request->qty * $produk->harga
         ]);
         
         return redirect()->back();
     }
 
+
     function data_penjualan(){
         $penjualan = DB::table('pelanggan')
-        ->join('penjualan', 'penjualan.penjualan_id', '=', 'pelanggan.penjualan_id')
+        ->join('penjualan', 'penjualan.pelanggan_id', '=' , 'pelanggan.pelanggan_id')
         ->get();
         // return $penjualan;
         return view ('data-penjualan',['penjualan'=> $penjualan]);
     }
 
 
+
+        function checkout(request $request ){
+            $updatedata = DB::table('penjualan')->where('penjualan_id', $request->penjualan_id)->update([
+                'status' => 'selesai',
+                'total_harga' =>  $request->total_harga
+            ]);
+            if($updatedata){
+                return redirect()->back()->with("deone ga bang", "done");
+            }
+        }
+
+        function detail_penjualan($id){
+            $detail = DB::table('detail_penjualan')
+            ->join('produk', 'produk.produk_id', '=' ,'detail_penjualan.produk_id')
+            ->join('penjualan', 'penjualan.penjualan_id', '=', 'detail_penjualan.penjualan_id' )
+            ->where('detail_penjualan.penjualan_id', $id)
+            ->get();
+            return view('/detail-penjualan', ['detail' => $detail]);
+        }
+function detail_p(){
+    return view('/detail-penjualan');       
+
+    
+}
+        
+   
 }

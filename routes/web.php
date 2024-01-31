@@ -10,10 +10,9 @@ use App\Http\Controllers\penjualan2controller;
 use App\Models\produk;
 use App\Models\pelanggan;
 
-// Route::middleware(['auth'])->group(function(){
+Route::middleware(['auth'])->group(function(){
 Route::get('/tampilan',[dashboardcontroller::class, 'tampilan']);
 
-Route::get('/tampil-dp',[dashboardcontroller::class, 'tampil_dp']);
 Route::get('/index',[dashboardcontroller::class, 'index']);
 Route::get('/data-barang',[dashboardcontroller::class, 'tampil_produk']);
 Route::post('/tampil-produk',[dashboardcontroller::class, 'proses_produk']);
@@ -37,23 +36,33 @@ Route::get('/pelanggan',[customerscontroller::class, 'tampil_pelanggan']);
 Route::POST('/pelanggan',[customerscontroller::class, 'proses_pelanggan']);
 
 Route::get('/hapus-s',[penjualancontroller::class, 'hapus_s']);
-Route::get('/penjualan',[penjualancontroller::class, 'tampil_penjualan']);
-Route::POST('/proses_jual',[penjualancontroller::class, 'proses_jual']);
-Route::POST('/keranjang/{id}',[penjualancontroller::class, 'keranjang']);
+// Route::get('/penjualan',[penjualancontroller::class, 'tampil_penjualan']);
+// Route::POST('/proses_jual',[penjualancontroller::class, 'proses_jual']);
+// Route::POST('/keranjang/{id}',[penjualancontroller::class, 'keranjang']);
 
-Route::get('/logout/admin',[admincontroller::class, 'proses_logout']);
 
-// });
-Route::get('/login-admin',[admincontroller::class, 'admin']);
+
+
+// Route::get('/penjualan2',[penjualan2controller::class, 'penjualan2']);
+Route::get('/hapus_penjualan2/{$id}',[Penjualan2Controller::class,'hapus_penjualan2']);
+Route::get('/penjualan2',[Penjualan2Controller::class,'penjualan2']);
+Route::post('/tambah-penjualan',[Penjualan2Controller::class,'tambah']);
+Route::get('/data-penjualan',[Penjualan2Controller::class,'data_penjualan']);
+Route::post('/checkout',[Penjualan2Controller::class,'checkout']);
+Route::get('/detail-p',[Penjualan2Controller::class,'detail_p']);
+
+
+
+
+});
+
+// Route::get('/side',[admincontroller::class, 'side']);
+Route::get('/login-admin',[admincontroller::class, 'admin'])->name('login');
 Route::post('/login-admin',[admincontroller::class, 'proses_admin']);
 
 
 Route::get('/daftar-admin',[admincontroller::class, 'regist']);
 Route::post('/daftar-admin',[admincontroller::class, 'regist_admin']);
 
-// Route::get('/penjualan2',[penjualan2controller::class, 'penjualan2']);
-
-Route::get('/tambah-penjualan',[Penjualan2Controller::class,'penjualan2']);
-Route::post('/tambah-penjualan',[Penjualan2Controller::class,'tambah']);
-Route::get('/data-penjualan',[Penjualan2Controller::class,'data_penjualan']);
+Route::get('/logout/admin',[admincontroller::class, 'proses_logout']);
 

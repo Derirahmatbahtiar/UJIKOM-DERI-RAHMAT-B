@@ -97,7 +97,7 @@
         <thead>
             <tr>
             <!-- <th scope="col">Penjual id</th> -->
-            <th scope="col">Nama penjualan</th>
+            <th scope="col">Nama pelanggan</th>
             <th scope="col">Tanggal jual</th>
             <th scope="col">Total</th>
             <th scope="col">Status</th>

@@ -89,8 +89,59 @@
         </a>
 </div>
 
+<div class="container" style="width:45%;">
+    <br>
+    <h3 style="text-align:center;">Struk Syukur kasir</h3>
+    <br>
+   
+    <div class="container">
+    <table  class="table table-bordered border-dark">
+        <thead>
+            <tr>
+            <th scope="col">No</th>
+            <th scope="col">Produk id</th>
+            <th scope="col">Tanggal jual</th>
+            <th scope="col">Harga satuan</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Status</th>
+            <th scope="col">Item discount</th>
+            </tr>
+        </thead>
 
+        @foreach($detail as $detail)
+        
+<?php $no = 1;?>
+
+            <tr>
+                <td>{{$no++}}</td>
+                <td>{{$detail -> produk_id}}</td>
+                <td>{{$detail -> tgl_penjualan}}</td>
+                <td>Rp : {{$detail -> total_harga}} </td>
+                <td>{{$detail -> jumlah_produk}}</td>
+                <td>{{$detail -> status}}</td>
+                <td>0.00,-</td>
+
+                
+        @endforeach
+        </tr>
+        </table>
+    <div class="container">
+        <h5>Total harga
+        <td>Rp : {{$detail -> SubTotal}}</td>
+        </h5>
+    </div>
+
+    <hr style="">
+    <h6 style="margin-left:2%;">Tanggal transaksi :
+    <td>{{$detail -> tgl_penjualan}}</td>
+    </h6>
+    <img style="margin-left:25%;" src="/storage/image/qr.png" alt="">
+    <hr>
+    <h6 style="text-align:center;">=== copyright @syukur kasir 2024-2025 ===</h6>
+    
+    <a href="/cetak/{{$detail->penjualan_id}}"  class="btn btn-outline-primary">Cetak struk</a>
 
 </div>
+
 </body>
 </html>

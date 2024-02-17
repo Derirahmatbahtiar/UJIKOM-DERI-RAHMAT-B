@@ -31,6 +31,10 @@ Route::post('/proses_pelanggan',[customerscontroller::class, 'proses_pelanggan']
 Route::get('/nambah_pelanggan',[customerscontroller::class, 'tambah_pelanggan']);
 Route::get('/hapus_pelanggan/{id}',[customerscontroller::class, 'hapus_pelanggan']);
 Route::get('/detail_pelanggan/{id}',[customerscontroller::class, 'detail_pelanggan']);
+Route::get('/update_pel/{id}',[customerscontroller::class, 'update_pelanggan']);
+Route::post('/update_pel/{id}',[customerscontroller::class, 'proses_update_p']);
+
+
 
 Route::get('/pelanggan',[customerscontroller::class, 'tampil_pelanggan']);
 Route::POST('/pelanggan',[customerscontroller::class, 'proses_pelanggan']);
@@ -44,12 +48,13 @@ Route::get('/hapus-s',[penjualancontroller::class, 'hapus_s']);
 
 
 // Route::get('/penjualan2',[penjualan2controller::class, 'penjualan2']);
-Route::get('/hapus_penjualan2/{$id}',[Penjualan2Controller::class,'hapus_penjualan2']);
+// Route::get('/hapus_penjualan2/{$id}',[Penjualan2Controller::class,'hapus_penjualan2']);
 Route::get('/penjualan2',[Penjualan2Controller::class,'penjualan2']);
 Route::post('/tambah-penjualan',[Penjualan2Controller::class,'tambah']);
 Route::get('/data-penjualan',[Penjualan2Controller::class,'data_penjualan']);
 Route::post('/checkout',[Penjualan2Controller::class,'checkout']);
-Route::get('/detail-p',[Penjualan2Controller::class,'detail_p']);
+Route::get('/detail-p/{id}',[Penjualan2Controller::class,'detail_penjualan']);
+Route::get('/cetak/{id}',[Penjualan2Controller::class,'cetak']);
 
 
 

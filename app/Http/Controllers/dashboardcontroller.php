@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\customerscontroller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\produk;
@@ -78,7 +79,6 @@ function proses_logout(){
   Auth::guard('admin')->logout();
   return redirect("/login-admin");
 }
-
 
 
 

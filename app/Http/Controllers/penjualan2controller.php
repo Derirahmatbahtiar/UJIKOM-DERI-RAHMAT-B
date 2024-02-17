@@ -89,15 +89,19 @@ class Penjualan2Controller extends Controller
             $detail = DB::table('detail_penjualan')
             ->join('produk', 'produk.produk_id', '=' ,'detail_penjualan.produk_id')
             ->join('penjualan', 'penjualan.penjualan_id', '=', 'detail_penjualan.penjualan_id' )
-            ->where('detail_penjualan.penjualan_id', $id)
+            ->where('detail_penjualan.penjualan_id' , $id)
             ->get();
-            return view('/detail-penjualan', ['detail' => $detail]);
+            return view('/detail-penjualan', ['detail' => $detail] );
+            
         }
-function detail_p(){
-    return view('/detail-penjualan');       
 
-    
-}
-        
+        function cetak($id){
+            $detail = DB::table('detail_penjualan')
+            ->join('produk', 'produk.produk_id', '=' ,'detail_penjualan.produk_id')
+            ->join('penjualan', 'penjualan.penjualan_id', '=', 'detail_penjualan.penjualan_id' )
+            ->where('detail_penjualan.penjualan_id' , $id)
+            ->get(); 
+            return view('cetak', ['detail' => $detail] );
+        }
    
 }

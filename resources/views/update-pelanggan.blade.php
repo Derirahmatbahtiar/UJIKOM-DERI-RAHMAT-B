@@ -103,7 +103,7 @@
     @csrf
 
     <div>
-        <h1>Update customers</h1>
+        <h1>Update Customers</h1>
     </div>
     <br>
 

@@ -94,8 +94,8 @@
     <h3>Data barang</h3>
     <br>
     <br>
-     <table  class="table table-bordered table-dark table table-bordered border-primary">
-  <thead>
+    <table  class="table table-bordered" style="border:3px solid;">
+        <thead style="border:3px solid;">
     <tr>
       <th scope="col">produk_id</th>
       <th scope="col">nama barang</th>

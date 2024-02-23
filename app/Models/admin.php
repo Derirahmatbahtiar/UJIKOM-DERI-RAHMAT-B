@@ -17,7 +17,7 @@ class admin extends Authenticatable
         'username',
         'password',
         'telp',
-        'level',
+        'status',
     ];
     protected $table = "admin";
 }

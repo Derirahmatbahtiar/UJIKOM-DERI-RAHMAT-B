@@ -93,9 +93,10 @@
             <br>
             <h3>Data barang</h3>
             <br>
+          
 
-        <table  class="table table-bordered table-dark table table-bordered border-primary">
-        <thead>
+        <table  class="table table-bordered" style="border:3px solid;">
+        <thead style="border:3px solid;">
             <tr>
             <th scope="col">Produk id</th>
             <th scope="col">Nama produk</th>
@@ -131,6 +132,11 @@
         @endforeach
         </tr>
         </table>
+        <a href="trash-produk" type="submit" class="btn btn-outline-dark">
+       
+        Trash
+        </a>
+
 
         <a href="nambah-barang" type="submit" class="btn btn-outline-primary">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">

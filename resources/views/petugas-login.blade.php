@@ -132,7 +132,7 @@ form .signup-link a:hover{
         login
     </div>
 
-  <form action="login-admin" method="POST">
+  <form action="login-petugas" method="POST">
 @method("POST")
 @csrf
 
@@ -153,11 +153,11 @@ form .signup-link a:hover{
       <div class="field">
           <button style="margin-left:35%;" type="submit" class="btn btn-outline-success">login</button>
       </div>
-      
 
-      <p><a href="{{'daftar-admin'}}" style="margin-left:50px;">belum punya akun? daftar</a></p>
+      <!-- <p><a href="{{'daftar-admin'}}" style="margin-left:50px;">belum punya akun? daftar</a></p> -->
 </form>
+
+
     </div>
-    
   </body>
 </html>

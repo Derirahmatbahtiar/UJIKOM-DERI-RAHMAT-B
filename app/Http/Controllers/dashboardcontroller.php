@@ -11,7 +11,14 @@ class dashboardcontroller extends Controller
 {
 //tampilan
   function tampilan(){
-    return view('dashboard');
+
+$admin = DB::table('admin')->get();
+$total_admin = count ($admin);
+
+$produk = DB::table('produk')->get();
+$total_produk = count ($produk);
+
+    return view('dashboard', ['total_admin' => $total_admin, 'total_produk' => $total_produk]);
   }
 
 
@@ -72,6 +79,23 @@ function proses_update(request $request, $id){
     ]); 
     return redirect('/data-barang');
 }
+
+//replace
+function trash(request $request){
+  $produk = DB::table('produk')->where('status', 'dihapus')->get();
+
+  return view('/trash', ['produk' => $produk]);
+}
+
+function restore(request $request){
+  $produk = produk::withTrashed()->find($id)->restore();
+  DB::table('produk')->where('id', '=', $id)->update([
+      'status' => "tampil",
+      'deleted_at' => NULL
+]);
+  return redirect()->back();
+}
+
 
 
 //logout

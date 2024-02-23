@@ -93,8 +93,8 @@
     <h3>Data penjualan</h3>
     <br>
     <div class="container">
-    <table  class="table table-bordered table-dark table table-bordered border-primary">
-        <thead>
+    <table  class="table table-bordered" style="border:3px solid;">
+        <thead style="border:3px solid;">
             <tr>
             <!-- <th scope="col">Penjual id</th> -->
             <th scope="col">Nama pelanggan</th>

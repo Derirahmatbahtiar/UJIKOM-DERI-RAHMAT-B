@@ -154,6 +154,13 @@ form .signup-link a:hover{
               <label for="telp"></label>
                <input type="telp"  class="zocial-dribbble" placeholder="Enter your telp" name="telp">
             </div>
+            <div class="field">
+            <select name="status" class="form-select" aria-label="Default select example">
+            <option selected>User</option>
+            <option value="1">Admin</option>
+            <option value="2">Petugas</option>
+          </select>
+         </div>
           
             <div class="field">
                <button style="margin-left:35%;" type="submit" class="btn btn-outline-success">daftar</button>

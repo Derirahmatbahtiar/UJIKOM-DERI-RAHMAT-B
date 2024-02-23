@@ -16,7 +16,7 @@
    
     <div class="container">
     <table  class="table table-bordered border-dark">
-        <thead>
+        <thead >
             <tr>
             <th scope="col">No</th>
             <th scope="col">Produk id</th>
@@ -32,7 +32,7 @@
         
 <?php $no = 1;?>
 
-            <tr>
+            <tr >
                 <td>{{$no++}}</td>
                 <td>{{$detail -> produk_id}}</td>
                 <td>{{$detail -> tgl_penjualan}}</td>

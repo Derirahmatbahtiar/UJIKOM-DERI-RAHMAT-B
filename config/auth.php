@@ -45,6 +45,10 @@ return [
                 'driver' => 'session',
                 'provider' => 'admin',
             ],
+            'petugas' => [
+                'driver' => 'session',
+                'provider' => 'petugas',
+            ],
     ],
 
     /*
@@ -72,6 +76,10 @@ return [
         'admin' => [
             'driver' => 'eloquent',
             'model' => App\Models\admin::class,
+        ],
+        'petugas' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\petugas::class,
         ],
         
 

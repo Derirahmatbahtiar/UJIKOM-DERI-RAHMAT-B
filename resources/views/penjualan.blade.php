@@ -189,7 +189,7 @@
 
       <!-- tabel   -->
       <table  class="table table-bordered table-dark table table-bordered border-primary">
-        <thead>
+  <thead>
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Nama produk</th>

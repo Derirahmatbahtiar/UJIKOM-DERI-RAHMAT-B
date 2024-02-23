@@ -19,7 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'id',
-        'nama_admin',
+        'nama_petugas',
         'username',
         'password',
         'telp',
@@ -46,5 +46,6 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
     
-    protected $table = "admin";
+    protected $table = "petugas";
 }
+

@@ -34,17 +34,31 @@ class admincontroller extends Controller
         $username = $request-> username;
         $password = $request-> password;
         $telp = $request-> telp;
+        $status = $request-> status;
 
         DB::table('admin')->insert([
             'nama_admin' => $nama,
             'username' => $username,
             'password' => hash::make($password),
-            'telp' => $telp
+            'telp' => $telp,
+            'status' => $status
+
         ]);
         return redirect('/login-admin');
     }
 
+    // function petugas(){
+    //     return view('login-petugas');
+    // }
 
+    //     function proses_petugas(request $request){
+    //         $data = $request->only("username", "password");
+    //         if(Auth::attempt($data)){
+    //             return redirect('tampilan');
+    //        }else{
+    //             return redirect('login-petugas')->with("error", "username atau password salah");
+    //        }
+    // }
 
 }
 

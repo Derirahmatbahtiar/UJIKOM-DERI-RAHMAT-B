@@ -105,8 +105,9 @@
     </div>
 
     <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label" >harga</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="harga"></textarea>
+     
+        <input type="text" name="harga"  placeholder="angka">
+           <label for="exampleFormControlTextarea1" class="form-label">harga</label>
     </div>
 
     <div class="mb-3">

@@ -18,14 +18,20 @@ $total_admin = count ($admin);
 $produk = DB::table('produk')->get();
 $total_produk = count ($produk);
 
-    return view('dashboard', ['total_admin' => $total_admin, 'total_produk' => $total_produk]);
+$pelanggan = DB::table('pelanggan')->get();
+$total_pelanggan = count ($pelanggan);
+
+$penjualan = DB::table('penjualan')->get();
+$total_penjualan = count ($penjualan);
+
+    return view('dashboard', ['total_admin' => $total_admin, 'total_produk' => $total_produk, 'total_pelanggan' => $total_pelanggan, 'total_penjualan' => $total_penjualan]);
   }
 
 
 //produk  
     function tampil_produk(){
-      $tambahkan = DB::table ('produk')->get();
-        return view('data-barang', [ 'tambahkan' => $tambahkan]);
+      $produk = DB::table ('produk')->where('status', 'tampil')->get();
+        return view('data-barang', [ 'produk' => $produk]);
     }
 
     function proses_produk(request $request){
@@ -50,20 +56,20 @@ $total_produk = count ($produk);
 
 //hapus produk  
   function hapus($id){
-    DB::table('produk')->where('produk_id', '=' , $id)->delete();
+    DB::table('produk')->where('id', '=' , $id)->delete();
     return  redirect('/data-barang');
     }
 
 //detail produk
     function detail($id){
-      $produk = DB::table('produk')->where('produk_id', '=', $id)->get();
+      $produk = DB::table('produk')->where('id', '=', $id)->get();
       return view('detail-barang', ['produk' => $produk]);
   }
 
 
 //update produk  
   function update($id){
-    $produk = DB::table('produk')->where('produk_id', '=', $id)->first();
+    $produk = DB::table('produk')->where('id', '=', $id)->first();
     return view('/update-produk', ['produk' => $produk]);
 }
 
@@ -72,7 +78,7 @@ function proses_update(request $request, $id){
     $harga = $request->harga;
     $stok = $request->stok;
 
-    DB::table('produk')->where('produk_id', '=', $id)->update([
+    DB::table('produk')->where('id', '=', $id)->update([
         'nama_produk' => $nama_produk,
         'harga' => $harga,
         'stok' => $stok,
@@ -83,11 +89,11 @@ function proses_update(request $request, $id){
 //replace
 function trash(request $request){
   $produk = DB::table('produk')->where('status', 'dihapus')->get();
-
+// return $produk;
   return view('/trash', ['produk' => $produk]);
 }
 
-function restore(request $request){
+function restore(request $request, $id){
   $produk = produk::withTrashed()->find($id)->restore();
   DB::table('produk')->where('id', '=', $id)->update([
       'status' => "tampil",
@@ -96,6 +102,15 @@ function restore(request $request){
   return redirect()->back();
 }
 
+//delete update
+function hapus_pr($id){
+  $produk = produk::find($id);
+  $produk->delete($id);
+  $produk = DB::table('produk')->where('id', '=', $id)->update([
+    'status' => "dihapus",
+  ]);
+  return redirect()->back();
+}
 
 
 //logout

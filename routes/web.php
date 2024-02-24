@@ -24,6 +24,7 @@ Route::get('/hapus/{id}',[dashboardcontroller::class, 'hapus']);
 Route::get('/detail/{id}',[dashboardcontroller::class, 'detail']);
 Route::get('/update/{id}',[dashboardcontroller::class, 'update']);
 Route::POST('/update/{id}',[dashboardcontroller::class, 'proses_update']);
+Route::get('/hapus-pr/{id}',[dashboardcontroller::class, 'hapus_pr']);
 Route::get('/trash-produk',[dashboardcontroller::class, 'trash']);
 Route::get('/restore-produk/{id}',[dashboardcontroller::class, 'restore']);
 

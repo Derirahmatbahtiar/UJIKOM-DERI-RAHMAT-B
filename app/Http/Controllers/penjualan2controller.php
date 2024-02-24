@@ -29,7 +29,7 @@ class Penjualan2Controller extends Controller
         }
 
         $detail_penjualan = DB::table('produk')->where("penjualan_id", $id_jual)
-        ->join("detail_penjualan","produk.produk_id","=",'detail_penjualan.produk_id')
+        ->join("detail_penjualan","produk.id","=",'detail_penjualan.produk_id')
         ->get();
 
 
@@ -37,7 +37,7 @@ class Penjualan2Controller extends Controller
     }
 
     function tambah(Request $request ){
-        $produk = DB::table('produk')->where('produk_id', $request->produk)->first();
+        $produk = DB::table('produk')->where('id', $request->produk)->first();
 
         // return $produk;     
 
@@ -87,7 +87,7 @@ class Penjualan2Controller extends Controller
 
         function detail_penjualan($id){
             $detail = DB::table('detail_penjualan')
-            ->join('produk', 'produk.produk_id', '=' ,'detail_penjualan.produk_id')
+            ->join('produk', 'produk.id', '=' ,'detail_penjualan.produk_id')
             ->join('penjualan', 'penjualan.penjualan_id', '=', 'detail_penjualan.penjualan_id' )
             ->where('detail_penjualan.penjualan_id' , $id)
             ->get();
@@ -97,7 +97,7 @@ class Penjualan2Controller extends Controller
 
         function cetak($id){
             $detail = DB::table('detail_penjualan')
-            ->join('produk', 'produk.produk_id', '=' ,'detail_penjualan.produk_id')
+            ->join('produk', 'produk.id', '=' ,'detail_penjualan.produk_id')
             ->join('penjualan', 'penjualan.penjualan_id', '=', 'detail_penjualan.penjualan_id' )
             ->where('detail_penjualan.penjualan_id' , $id)
             ->get(); 

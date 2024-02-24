@@ -98,7 +98,7 @@
 </div>
 
     <div class="container">
-    <form action={{url("/update/$produk->produk_id")}} method="POST">
+    <form action={{url("/update/$produk->id")}} method="POST">
     @method("POST")
     @csrf
 

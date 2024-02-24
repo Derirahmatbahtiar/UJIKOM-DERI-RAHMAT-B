@@ -103,7 +103,7 @@
                             <select class="form-select"  name="produk">
                                 <option selected>Pilih Produk Anda</option>
                                 @foreach ($produk as $produk)
-                                    <option value="{{$produk->produk_id}}" >{{ $produk->nama_produk }}
+                                    <option value="{{$produk->id}}" >{{ $produk->nama_produk }}
                                 </option>
                                 @endforeach
                             </select>

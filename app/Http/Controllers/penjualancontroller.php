@@ -16,7 +16,7 @@ class penjualancontroller extends Controller
         // $penjualan = DB::table('penjualan')->get();
 
         $sementara = DB::table('sementara')
-        ->join('produk', 'sementara.produk_id', '=', 'produk.produk_id')->get();
+        ->join('produk', 'sementara.id', '=', 'produk.id')->get();
         
             // $harga = DB::table('sementara')->get('total');
             // $total_harga = collect($harga)->sum('total');

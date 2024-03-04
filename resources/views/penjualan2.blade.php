@@ -100,10 +100,10 @@
                         style="  display: grid; grid-template-columns: auto auto auto; gap: 10px 10px;">
 
                         <div class="col-12">
-                            <select class="form-select"  name="produk">
+                            <select style="width:70%;" class="form-select"  name="produk">
                                 <option selected>Pilih Produk Anda</option>
                                 @foreach ($produk as $produk)
-                                    <option value="{{$produk->id}}" >{{ $produk->nama_produk }}
+                                    <option value="{{$produk->produk_id}}" >{{ $produk->nama_produk }}
                                 </option>
                                 @endforeach
                             </select>
@@ -120,12 +120,6 @@
                             </div>
                         </div>
 
-                        <select class="form-select" style="margin-right:40%; width:60%;" name ="pelanggan" >
-                            <option selected>Nama Pelanggan</option>
-                            @foreach ($pelanggan as $pelanggan)
-                                <option value="{{$pelanggan->pelanggan_id}}" >{{ $pelanggan->nama_pelanggan }}</option>
-                            @endforeach
-                        </select>
 
                                 <div style="margin-left:5%;">
                                     <button class="btn btn-outline-primary">Tambah</button>
@@ -171,12 +165,29 @@
             <h5> Total Harga : {{number_format($total_harga,0,',','.')}}</h5>
         </div>
 
-            <br>
-
-        <div class="container">
+            
             <form action="{{url('checkout')}}" method="POST">
                 @method('post')
                 @csrf
+
+
+
+<div>
+                @foreach($detail_penjualan as $detail_penjualan)
+                    <input type="hidden" name="produk_id" value="{{$detail_penjualan->produk_id}}">
+                    <input type="hidden" name="stok" value="{{$detail_penjualan->stok}}">
+                    <input type="hidden" name="qty" value="{{$detail_penjualan->qty}}">
+                @endforeach
+
+            <select style="width:20%;" class="form-select" style="margin-right:40%; width:60%;" name ="pelanggan_id" >
+                            <option selected>Nama Pelanggan</option>
+                            @foreach ($pelanggan as $pelanggan)
+                                <option value="{{$pelanggan->pelanggan_id}}" >{{ $pelanggan->nama_pelanggan }}</option>
+                            @endforeach
+                        </select>
+                        </div>
+        <br>
+        <div class="container">
                 <input type="hidden"  name="penjualan_id" value="{{$penjualan_id}}">
                 <input type="hidden"  name="total_harga" value="{{$total_harga}}">
                 <button type="submit" class="btn btn-outline-success">checkout</button>

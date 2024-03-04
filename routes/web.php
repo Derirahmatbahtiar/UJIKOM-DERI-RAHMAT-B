@@ -24,9 +24,9 @@ Route::get('/hapus/{id}',[dashboardcontroller::class, 'hapus']);
 Route::get('/detail/{id}',[dashboardcontroller::class, 'detail']);
 Route::get('/update/{id}',[dashboardcontroller::class, 'update']);
 Route::POST('/update/{id}',[dashboardcontroller::class, 'proses_update']);
-Route::get('/hapus-pr/{id}',[dashboardcontroller::class, 'hapus_pr']);
-Route::get('/trash-produk',[dashboardcontroller::class, 'trash']);
-Route::get('/restore-produk/{id}',[dashboardcontroller::class, 'restore']);
+// Route::get('/hapus-pr/{id}',[dashboardcontroller::class, 'hapus_pr']);
+// Route::get('/trash-produk',[dashboardcontroller::class, 'trash']);
+// Route::get('/restore-produk/{id}',[dashboardcontroller::class, 'restore']);
 
 
 
@@ -50,6 +50,7 @@ Route::post('/checkout',[Penjualan2Controller::class,'checkout']);
 Route::get('/detail-p/{id}',[Penjualan2Controller::class,'detail_penjualan']);
 Route::get('/cetak/{id}',[Penjualan2Controller::class,'cetak']);
 
+Route::get('/penjualan',[PenjualanController::class,'tampil_penjualan']);
 
 
 });

@@ -56,20 +56,20 @@ $total_penjualan = count ($penjualan);
 
 //hapus produk  
   function hapus($id){
-    DB::table('produk')->where('id', '=' , $id)->delete();
+    DB::table('produk')->where('produk_id', '=' , $id)->delete();
     return  redirect('/data-barang');
     }
 
 //detail produk
     function detail($id){
-      $produk = DB::table('produk')->where('id', '=', $id)->get();
+      $produk = DB::table('produk')->where('produk_id', '=', $id)->get();
       return view('detail-barang', ['produk' => $produk]);
   }
 
 
 //update produk  
   function update($id){
-    $produk = DB::table('produk')->where('id', '=', $id)->first();
+    $produk = DB::table('produk')->where('produk_id', '=', $id)->first();
     return view('/update-produk', ['produk' => $produk]);
 }
 
@@ -78,7 +78,7 @@ function proses_update(request $request, $id){
     $harga = $request->harga;
     $stok = $request->stok;
 
-    DB::table('produk')->where('id', '=', $id)->update([
+    DB::table('produk')->where('produk_id', '=', $id)->update([
         'nama_produk' => $nama_produk,
         'harga' => $harga,
         'stok' => $stok,
@@ -87,30 +87,30 @@ function proses_update(request $request, $id){
 }
 
 //replace
-function trash(request $request){
-  $produk = DB::table('produk')->where('status', 'dihapus')->get();
-// return $produk;
-  return view('/trash', ['produk' => $produk]);
-}
+// function trash(request $request){
+//   $produk = DB::table('produk')->where('status', 'dihapus')->get();
+// // return $produk;
+//   return view('/trash', ['produk' => $produk]);
+// }
 
-function restore(request $request, $id){
-  $produk = produk::withTrashed()->find($id)->restore();
-  DB::table('produk')->where('id', '=', $id)->update([
-      'status' => "tampil",
-      'deleted_at' => NULL
-]);
-  return redirect()->back();
-}
+// function restore(request $request, $id){
+//   $produk = produk::withTrashed()->find($id)->restore();
+//   DB::table('produk')->where('id', '=', $id)->update([
+//       'status' => "tampil",
+//       'deleted_at' => NULL
+// ]);
+//   return redirect()->back();
+// }
 
-//delete update
-function hapus_pr($id){
-  $produk = produk::find($id);
-  $produk->delete($id);
-  $produk = DB::table('produk')->where('id', '=', $id)->update([
-    'status' => "dihapus",
-  ]);
-  return redirect()->back();
-}
+// //delete update
+// function hapus_pr($id){
+//   $produk = produk::find($id);
+//   $produk->delete($id);
+//   $produk = DB::table('produk')->where('id', '=', $id)->update([
+//     'status' => "dihapus",
+//   ]);
+//   return redirect()->back();
+// }
 
 
 //logout

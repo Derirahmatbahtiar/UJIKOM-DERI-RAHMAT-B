@@ -106,7 +106,7 @@
 
     <div class="mb-3">
      
-        <input type="text" name="harga"  placeholder="angka">
+        <input type="number" name="harga">
            <label for="exampleFormControlTextarea1" class="form-label">harga</label>
     </div>
 

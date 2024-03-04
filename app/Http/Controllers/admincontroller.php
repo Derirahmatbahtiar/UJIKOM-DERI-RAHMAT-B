@@ -41,7 +41,7 @@ class admincontroller extends Controller
             'username' => $username,
             'password' => hash::make($password),
             'telp' => $telp,
-            'status' => $status
+            'status' => 'admin'
 
         ]);
         return redirect('/login-admin');

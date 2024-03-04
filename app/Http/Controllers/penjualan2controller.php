@@ -28,16 +28,17 @@ class Penjualan2Controller extends Controller
             }
         }
 
-        $detail_penjualan = DB::table('produk')->where("penjualan_id", $id_jual)
-        ->join("detail_penjualan","produk.id","=",'detail_penjualan.produk_id')
+        $detail_penjualan = DB::table('detail_penjualan')->where("penjualan_id", $id_jual)
+        ->join('produk','detail_penjualan.produk_id', '=','produk.produk_id')
         ->get();
 
 
-        return view ('/penjualan2',['produk'=>$produk,'pelanggan'=>$pelanggan ,'penjualan_id' => $id_jual, 'detail_penjualan' => $detail_penjualan]);
+        return view ('/penjualan2',['produk'=>$produk,'pelanggan'=>$pelanggan ,'penjualan_id' => $id_jual,
+         'detail_penjualan' => $detail_penjualan, 'penjualan' => $penjualan ]);
     }
 
     function tambah(Request $request ){
-        $produk = DB::table('produk')->where('id', $request->produk)->first();
+        $produk = DB::table('produk')->where('produk_id', $request->produk)->first();
 
         // return $produk;     
 
@@ -47,7 +48,7 @@ class Penjualan2Controller extends Controller
                 'penjualan_id' => $request->penjualan_id,
                 'tgl_Penjualan'=> date("Y-m-d"),
                 'total_harga' => 0,
-                'pelanggan_id' => $request->pelanggan,
+                'pelanggan_id' => 15,
                 'status'=>'proses'
             ]);
   
@@ -76,9 +77,15 @@ class Penjualan2Controller extends Controller
 
 
         function checkout(request $request ){
+            $produk = DB::table('produk')->where('produk_id', $request->produk_id)->first();
+            $update_stok = DB::table('produk')->where('produk_id', $request->produk_id)->update([
+                'stok' => $request->stok - $request->qty
+            ]);
+
             $updatedata = DB::table('penjualan')->where('penjualan_id', $request->penjualan_id)->update([
                 'status' => 'selesai',
-                'total_harga' =>  $request->total_harga
+                'total_harga' =>  $request->total_harga,
+                'pelanggan_id' => $request->pelanggan_id
             ]);
             if($updatedata){
                 return redirect()->back()->with("deone ga bang", "done");

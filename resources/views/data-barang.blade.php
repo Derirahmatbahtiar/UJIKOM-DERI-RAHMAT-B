@@ -112,7 +112,7 @@
             <tr>
                 <td>{{$produk -> produk_id}}</td>
                 <td>{{$produk -> nama_produk}}</td>
-                <td>Rp {{$produk -> harga}} </td>
+                <td>Rp {{number_format($produk->harga,0,',','.')}} </td>
                 <td>{{$produk -> stok}}</td>
                 <td>
                 <a href="hapus/{{$produk->produk_id}}" class="btn btn-outline-danger">

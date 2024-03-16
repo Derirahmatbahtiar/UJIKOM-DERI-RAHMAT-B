@@ -176,7 +176,7 @@
   const ctx = document.getElementById('myChart');
 
   new Chart(ctx, {
-    type: 'line',
+    type: 'bar',
     data: {
       labels: ['januari', 'februari', 'maret', 'april', 'mei', 'juni', 'july', 'agustus', 'september', 'november', 'desember'],
       datasets: [{

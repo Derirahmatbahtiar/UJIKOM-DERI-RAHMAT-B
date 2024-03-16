@@ -112,7 +112,7 @@
                 
                 <td>{{$penjualan -> nama_pelanggan}} </td>
                 <td>{{$penjualan -> tgl_penjualan}}</td>
-                <td>{{$penjualan -> total_harga}} </td>
+                <td>{{number_format($penjualan->total_harga,0,',','.')}}</td>
                 <td>{{$penjualan -> status}}</td>
                 <td>
                 <a href="detail-p/{{$penjualan->penjualan_id}}"  class="btn btn-outline-primary">

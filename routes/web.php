@@ -44,12 +44,12 @@ Route::POST('/pelanggan',[customerscontroller::class, 'proses_pelanggan']);
 
 //penjualan
 Route::get('/penjualan2',[Penjualan2Controller::class,'penjualan2']);
+Route::get('/hapus-pen/{id}',[penjualan2controller::class, 'hapus_pen']);
 Route::post('/tambah-penjualan',[Penjualan2Controller::class,'tambah']);
 Route::get('/data-penjualan',[Penjualan2Controller::class,'data_penjualan']);
 Route::post('/checkout',[Penjualan2Controller::class,'checkout']);
 Route::get('/detail-p/{id}',[Penjualan2Controller::class,'detail_penjualan']);
 Route::get('/cetak/{id}',[Penjualan2Controller::class,'cetak']);
-
 Route::get('/penjualan',[PenjualanController::class,'tampil_penjualan']);
 
 

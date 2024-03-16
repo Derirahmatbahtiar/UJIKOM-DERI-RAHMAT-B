@@ -21,6 +21,7 @@
             <th scope="col">No</th>
             <th scope="col">Produk id</th>
             <th scope="col">Tanggal jual</th>
+            <th scope="col">Nama barang</th>
             <th scope="col">Harga satuan</th>
             <th scope="col">Quantity</th>
             <th scope="col">Status</th>
@@ -36,7 +37,8 @@
                 <td>{{$no++}}</td>
                 <td>{{$detail -> produk_id}}</td>
                 <td>{{$detail -> tgl_penjualan}}</td>
-                <td>Rp : {{$detail -> total_harga}} </td>
+                <td>{{$detail -> nama_produk}}</td>
+                <td>Rp : {{$detail -> harga}} </td>
                 <td>{{$detail -> jumlah_produk}}</td>
                 <td>{{$detail -> status}}</td>
                 <td>0.00,-</td>
@@ -55,6 +57,7 @@
     <h6 style="margin-left:2%;">Tanggal transaksi :
     <td>{{$detail -> tgl_penjualan}}</td>
     </h6>
+  
     <img style="margin-left:25%;" src="/storage/image/qr.png" alt="">
     <hr>
     <h6 style="text-align:center;">=== copyright @syukur kasir ===</h6>

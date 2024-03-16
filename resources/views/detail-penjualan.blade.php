@@ -101,6 +101,7 @@
             <th scope="col">No</th>
             <th scope="col">Produk id</th>
             <th scope="col">Tanggal jual</th>
+            <th scope="col">Nama barang</th>
             <th scope="col">Harga satuan</th>
             <th scope="col">Quantity</th>
             <th scope="col">Status</th>
@@ -116,19 +117,20 @@
                 <td>{{$no++}}</td>
                 <td>{{$detail -> produk_id}}</td>
                 <td>{{$detail -> tgl_penjualan}}</td>
-                <td>Rp : {{$detail -> total_harga}} </td>
+                <td>{{$detail -> nama_produk}}</td>
+                <td>Rp : {{number_format($detail->total_harga,0,',','.')}} </td>
                 <td>{{$detail -> jumlah_produk}}</td>
                 <td>{{$detail -> status}}</td>
                 <td>0.00,-</td>
-
-                
         @endforeach
         </tr>
+
+        
         </table>
     <div class="container">
         <h5>Total harga
-        <td>Rp : {{$detail -> SubTotal}}</td>
-        </h5>
+        <td>Rp : {{number_format($detail->SubTotal,0,',','.')}}</td>
+        
     </div>
 
     <hr style="">

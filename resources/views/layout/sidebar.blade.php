@@ -79,7 +79,11 @@
         </a>
 </div>
 
-
+@foreach ($detail_penjualan as $detail_penjualan)
+                            <input type="hidden" name="produk_id" value="{{$detail_penjualan->produk_id}}">
+                            <input type="hidden" name="stok" value="{{$detail_penjualan->stok}}">
+                            <input type="hidden" name="qty" value="{{$detail_penjualan->qty}}">
+                        @endforeach
 
 
 </div>

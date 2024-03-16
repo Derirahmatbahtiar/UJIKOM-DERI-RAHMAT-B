@@ -51,19 +51,25 @@ class Penjualan2Controller extends Controller
                 'pelanggan_id' => 15,
                 'status'=>'proses'
             ]);
-  
-        }
-       
-
-        $detail = DB::table('detail_penjualan')->insert([
-            'penjualan_id' => $request->penjualan_id,
-            'produk_id' => $request->produk,
-            'jumlah_produk'=> $request->qty,
-            'SubTotal'=> $request->qty * $produk->harga
-        ]);
-        
-        return redirect()->back();
+            if($produk->stok - $request->jumlah < 0){
+                return redirect()->back()->with("alert", "stok ga cukup mass");
+            }else{ $detail = DB::table('detail_penjualan')->insert([
+                'penjualan_id' => $request->penjualan_id,
+                'produk_id' => $request->produk,
+                'jumlah_produk'=> $request->qty,
+                'SubTotal'=> $request->qty * $produk->harga
+            ]);
+            DB::table('produk')->where('produk_id', $request->produk)->update(['stok' => $produk->stok - $request->qty]);
+        } 
+   
     }
+           return redirect()->back(); 
+}
+
+    function hapus_pen($id){
+        DB::table('detail_penjualan')->where('detail_id', '=' , $id)->delete();
+        return  redirect('/penjualan2');
+        }
 
 
     function data_penjualan(){
@@ -80,6 +86,7 @@ class Penjualan2Controller extends Controller
             $produk = DB::table('produk')->where('produk_id', $request->produk_id)->first();
             $update_stok = DB::table('produk')->where('produk_id', $request->produk_id)->update([
                 'stok' => $request->stok - $request->qty
+   
             ]);
 
             $updatedata = DB::table('penjualan')->where('penjualan_id', $request->penjualan_id)->update([
@@ -87,14 +94,15 @@ class Penjualan2Controller extends Controller
                 'total_harga' =>  $request->total_harga,
                 'pelanggan_id' => $request->pelanggan_id
             ]);
-            if($updatedata){
-                return redirect()->back()->with("deone ga bang", "done");
-            }
+            
+
+                return redirect()->back();
+            
         }
 
         function detail_penjualan($id){
             $detail = DB::table('detail_penjualan')
-            ->join('produk', 'produk.id', '=' ,'detail_penjualan.produk_id')
+            ->join('produk', 'produk.produk_id', '=' ,'detail_penjualan.produk_id')
             ->join('penjualan', 'penjualan.penjualan_id', '=', 'detail_penjualan.penjualan_id' )
             ->where('detail_penjualan.penjualan_id' , $id)
             ->get();
@@ -104,7 +112,7 @@ class Penjualan2Controller extends Controller
 
         function cetak($id){
             $detail = DB::table('detail_penjualan')
-            ->join('produk', 'produk.id', '=' ,'detail_penjualan.produk_id')
+            ->join('produk', 'produk.produk_id', '=' ,'detail_penjualan.produk_id')
             ->join('penjualan', 'penjualan.penjualan_id', '=', 'detail_penjualan.penjualan_id' )
             ->where('detail_penjualan.penjualan_id' , $id)
             ->get(); 

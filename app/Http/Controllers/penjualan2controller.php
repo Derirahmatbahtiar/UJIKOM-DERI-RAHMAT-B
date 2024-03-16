@@ -51,6 +51,7 @@ class Penjualan2Controller extends Controller
                 'pelanggan_id' => 15,
                 'status'=>'proses'
             ]);
+        }
             if($produk->stok - $request->jumlah < 0){
                 return redirect()->back()->with("alert", "stok ga cukup mass");
             }else{ $detail = DB::table('detail_penjualan')->insert([
@@ -60,11 +61,14 @@ class Penjualan2Controller extends Controller
                 'SubTotal'=> $request->qty * $produk->harga
             ]);
             DB::table('produk')->where('produk_id', $request->produk)->update(['stok' => $produk->stok - $request->qty]);
+              return redirect()->back(); 
         } 
+
+       
    
     }
-           return redirect()->back(); 
-}
+         
+
 
     function hapus_pen($id){
         DB::table('detail_penjualan')->where('detail_id', '=' , $id)->delete();

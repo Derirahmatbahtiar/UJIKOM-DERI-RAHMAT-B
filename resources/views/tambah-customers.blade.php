@@ -12,6 +12,14 @@
     background-color:blue;
 }
 
+input[type=text]{
+  width: 100%;
+  padding: 10px 18px;
+  margin: 7px 0;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
 </style>
 
 <body>
@@ -99,18 +107,18 @@
     <br>
 
     <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label" >nama</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="nama_pelanggan"></textarea>
+        <label>nama</label>
+        <input class="form-control" type="text" name="nama_pelanggan" palceholder="nama"></input>
     </div>
 
     <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label" >alamat</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="alamat"></textarea>
+        <label>alamat</label>
+        <input class="form-control" type="text" name="alamat" placeholder="alamat"></input>
     </div>
 
     <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label" >no telp</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="no_telp"></textarea>
+        <label>no telp</label>
+        <input class="form-control" type="number" name="no_telp"></input>
     </div>
 
         <button class="btn btn-outline-success" type="submit">kirim</button>

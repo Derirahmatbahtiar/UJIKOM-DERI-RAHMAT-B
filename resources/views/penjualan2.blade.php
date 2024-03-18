@@ -93,11 +93,6 @@
             <h3 style="text-align:center;">Anda bisa beli barang</h3>
             <br>
 
-            @if (session()->has('alert'))
-            <div class="alert alert-danger" role="alert">
-                {{session('alert')}}
-            </div>
-            @endif
        
                 <form action={{ url('/tambah-penjualan')}} method="POST">
                     @method('POST')
@@ -204,6 +199,12 @@
                 <input type="hidden"  name="total_harga" value="{{$total_harga}}">
                 <button  type="submit" class="btn btn-outline-success">checkout</button>
                 
+            @if (session()->has('alert'))
+            <div class="alert alert-danger" style="margin-left:35%; width:40%; " role="alert" >
+                {{session('alert')}}
+            </div>
+            @endif
+            
 </div>
     </form>
 

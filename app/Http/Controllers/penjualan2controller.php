@@ -52,7 +52,7 @@ class Penjualan2Controller extends Controller
                 'status'=>'proses'
             ]);
         }
-            if($produk->stok - $request->jumlah < 0){
+            if($produk->stok - $request->qty < 0){
                 return redirect()->back()->with("alert", "stok ga cukup mass");
             }else{ $detail = DB::table('detail_penjualan')->insert([
                 'penjualan_id' => $request->penjualan_id,
@@ -122,5 +122,7 @@ class Penjualan2Controller extends Controller
             ->get(); 
             return view('cetak', ['detail' => $detail] );
         }
+
+      
    
 }

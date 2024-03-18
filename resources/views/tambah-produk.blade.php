@@ -12,6 +12,14 @@
     background-color:blue;
 }
 
+input[type=text]{
+  width: 100%;
+  padding: 10px 18px;
+  margin: 7px 0;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
 </style>
 
 <body>
@@ -100,19 +108,19 @@
     <br>
 
     <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label" >nama produk</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="nama_produk"></textarea>
+        <label >nama produk</label>
+        <input type="text" placeholder="nama" class="form-control" name="nama_produk"></input>
     </div>
 
     <div class="mb-3">
      
         <input type="number" name="harga">
-           <label for="exampleFormControlTextarea1" class="form-label">harga</label>
+           <label class="form-label">harga</label>
     </div>
 
     <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label" >stok</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="stok"></textarea>
+        <label>stok</label>
+        <input type="text" placeholder="stok" class="form-control"name="stok"></input>
     </div>
 
         

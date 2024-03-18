@@ -53,6 +53,7 @@ Route::get('/cetak/{id}',[Penjualan2Controller::class,'cetak']);
 Route::get('/penjualan',[PenjualanController::class,'tampil_penjualan']);
 
 
+
 });
 
 
